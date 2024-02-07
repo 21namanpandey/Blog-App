@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom"
 import DashSidebar from "../components/DashSidebar";
 import DashProfile from "../components/DashProfile";
 import DashPosts from "../components/DashPosts";
+import DashUsers from "../components/DashUsers";
 
 
 const Dashboard = () => {
@@ -12,7 +13,7 @@ const Dashboard = () => {
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search)
         const tabFromUrl = urlParams.get('tab')
-        if(tabFromUrl) {
+        if (tabFromUrl) {
             setTab(tabFromUrl)
         }
     }, [location.search])
@@ -30,6 +31,9 @@ const Dashboard = () => {
 
             {/* {posts...} */}
             {tab === 'posts' && <DashPosts />}
+
+            {/* {users..} */}
+            {tab === 'users' && <DashUsers />}
 
         </div>
     )
